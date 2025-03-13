@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                    echo 'Buiding the script'
                     sh 'g++ -o PES1UG22AM126-1 main.cpp' // Compile .cpp file
                 }
             }
@@ -13,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
+                    echo 'Testing the script'
                     sh './PES1UG22AM126-1' // Run the compiled executable
                 }
             }
@@ -21,9 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh 'git add main.cpp'
-                    sh 'git commit -m "Adding working C++ file"'
-                    sh 'git push origin main' // Push to repository
+                    echo 'Deployment Stage'
                 }
             }
         }
